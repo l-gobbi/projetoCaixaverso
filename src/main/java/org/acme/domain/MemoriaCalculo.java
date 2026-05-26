@@ -17,6 +17,6 @@ public class MemoriaCalculo extends PanacheEntity {
 
     @ManyToOne
     @JoinColumn(name = "simulacao_id")
-    @JsonIgnore // Evita loop infinito na hora de serializar o JSON
+    @JsonIgnore
     public Simulacao simulacao;
 }

@@ -30,7 +30,6 @@ public class SimulacaoResource {
     public Response criarSimulacao(@Valid SimulacaoRequest request) {
         Simulacao simulacao = service.gerarSimulacao(request);
 
-        // Retorna HTTP 201 Created com o cabeçalho Location apontando para o novo recurso
         return Response.created(URI.create("/simulacoes/" + simulacao.id))
                 .entity(simulacao)
                 .build();
@@ -45,7 +44,6 @@ public class SimulacaoResource {
         Simulacao simulacao = service.obterSimulacao(id);
 
         if (simulacao == null) {
-            // Retorna HTTP 404 se o ID não existir na base de dados
             return Response.status(Response.Status.NOT_FOUND).build();
         }
 
